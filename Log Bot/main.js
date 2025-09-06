@@ -17,13 +17,13 @@
   const STORAGE_KEY = "geofs_flight_logger_session";
 
   const SALARY_CONFIG = {
-    baseRate: 300, // 基础时薪（元/小时）
+    baseRate: 800, // 基础时薪（元/小时）
     nightBonus: 1.2, // 夜间飞行加成
     internationalBonus: 1.5, // 国际航班加成
     butterBonus: 200, // 完美着陆奖金
     hardPenalty: -100, // 硬着陆罚款
-    crashPenalty: -500, // 坠机罚款
-    minFlightTime: 0.5, // 最小计费时间（小时）
+    crashPenalty: -50000, // 坠机罚款
+    minFlightTime: 0, // 最小计费时间（小时）
     nightHours: [22, 6] // 夜间时间段 [开始小时, 结束小时]
   };
 
