@@ -19,7 +19,7 @@ My goal was to put the liveries into one easy to use interface where you can sel
 
 ## Star History
 
-[![Star History Chart]([https://api.star-history.com/svg?repos=mwgg/Airports&type=Date](https://www.star-history.com/#GeoFS-hub/Travel-Airways&Date))]
+[![Star History Chart](https://api.star-history.com/svg?repos=GeoFS-hub/Travel-Airways&type=Date)](https://www.star-history.com/#GeoFS-hub/Travel-Airways&Date)
 
 
 ## Offical Website
