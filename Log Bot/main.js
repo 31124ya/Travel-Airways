@@ -1,12 +1,11 @@
 // ==UserScript==
 // @name         Travel Airways Log Bot (GeoFS)
 // @namespace    https://airtravel.neocities.org/flightlogger
-// @version      1.2.1
+// @version      1.2.2
 // @description  Logs flights with crash detection, auto ICAO detection, session recovery & terrain-based AGL check for Travel Airways
 // @match        http://*/geofs.php*
 // @match        https://*/geofs.php*
 // @author       31124呀
-// @run-at       document-end
 // @grant        none
 // ==/UserScript==
 
@@ -199,6 +198,12 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
       default: embedColor = 0x0099FF; break;
     }
 
+    // 构建工资信息字符串，包含奖金信息
+    let salaryValue = `**Total**: ${salaryData.total} CNY`;
+    if (salaryData.bonus !== 0) {
+      salaryValue += `\n**Bonus**: ${salaryData.bonus > 0 ? '+' : ''}${salaryData.bonus} CNY`;
+    }
+
     const message = {
       embeds: [{
         title: "🛫 Flight Report - GeoFS",
@@ -231,7 +236,7 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
           },
           {
             name: "💰 Salary",
-            value: `**Total**: ${salaryData.total} CNY`,
+            value: salaryValue,
             inline: true
           },
           {
