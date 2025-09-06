@@ -30,6 +30,11 @@ My goal was to put the liveries into one easy to use interface where you can sel
 
 ## Offical Website
 
+
+
+
+## Log Bot
+###### Credit to AverageCreator and SeaBus of their add-on [SAW Flight Logger](https://github.com/AverageCreator/SAW-Flight-Logger)
 [Travel Airways](https://airtravel.neocities.org/)
 
 
