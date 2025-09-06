@@ -1,11 +1,10 @@
 // ==UserScript==
-// @name         Travel Airways Log Bot
+// @name         Travel Airways Log Bot (GeoFS)
 // @namespace    https://airtravel.neocities.org/flightlogger
 // @version      1.2.1
 // @description  Logs flights with crash detection, auto ICAO detection, session recovery & terrain-based AGL check for Travel Airways
 // @match        http://*/geofs.php*
 // @match        https://*/geofs.php*
-// @match        https://geo-fs.com/*
 // @author       31124呀
 // @run-at       document-end
 // @grant        none
