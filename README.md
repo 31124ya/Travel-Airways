@@ -31,11 +31,10 @@ My goal was to put the liveries into one easy to use interface where you can sel
 ## Offical Website
 
 
-
+[Travel Airways Offical Website](https://airtravel.neocities.org)
 
 ## Log Bot
 ###### Credit to AverageCreator and SeaBus of their add-on [SAW Flight Logger](https://github.com/AverageCreator/SAW-Flight-Logger)
-[Travel Airways](https://airtravel.neocities.org/)
 
 
 ## How to use
@@ -53,7 +52,7 @@ You can use this without installation: just copy the URL and paste it in LiveryS
 ## Last Updated Time
 ### UTC Time: 
 ```C++
-11:00, 25th Aug, 2025
+08:00, 25th September, 2025
 ```
 
 ###### By 31124呀
