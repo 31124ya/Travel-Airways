@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Travel Airways Log Bot
 // @namespace    https://airtravel.neocities.org/flightlogger
-// @version      1.0.1
+// @version      1.2.1
 // @description  Logs flights with crash detection, auto ICAO detection, session recovery & terrain-based AGL check for Travel Airways
 // @match        http://*/geofs.php*
 // @match        https://*/geofs.php*
+// @author       31124呀
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
@@ -14,6 +15,17 @@
 
   const WEBHOOK_URL = "https://discord.com/api/webhooks/1411315862048084020/Kr-E6vo1tGucV3JFlLoMPE-atz0btZUtIfWTWQ6sqqrxKQ7MPY4chpsWhvqmz3FtY_Cx";
   const STORAGE_KEY = "geofs_flight_logger_session";
+
+  const SALARY_CONFIG = {
+    baseRate: 300, // 基础时薪（元/小时）
+    nightBonus: 1.2, // 夜间飞行加成
+    internationalBonus: 1.5, // 国际航班加成
+    butterBonus: 200, // 完美着陆奖金
+    hardPenalty: -100, // 硬着陆罚款
+    crashPenalty: -500, // 坠机罚款
+    minFlightTime: 0.5, // 最小计费时间（小时）
+    nightHours: [22, 6] // 夜间时间段 [开始小时, 结束小时]
+  };
 
   let flightStarted = false;
   let flightStartTime = null;
@@ -27,6 +39,10 @@
   let airportsDB = [];
   let departureAirportData = null;
   let arrivalAirportData = null;
+  let isPanelVisible = true;
+  let isDragging = false;
+  let dragOffsetX = 0;
+  let dragOffsetY = 0;
 
 fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
   .then(r => r.json())
@@ -44,7 +60,6 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
   })
   .catch(err => console.error("❌ Airport DB load failed:", err));
 
-  // 获取最近机场函数：使用Haversine公式计算距离
   function getNearestAirport(lat, lon) {
     if (!airportsDB.length) return { icao: "UNKNOWN" };
     let nearest = null, minDist = Infinity;
@@ -76,11 +91,6 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
       timestamp: Date.now()
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-  }
-
-  function loadSession() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
   }
 
   function clearSession() {
@@ -125,7 +135,59 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
     return `${fmt.format(new Date(timestamp))} ${suffix}`;
   }
 
-  function sendLogToDiscord(data) {
+  function calculateSalary(flightData) {
+    const flightHours = flightData.durationHours;
+    const landingQuality = flightData.landingQuality;
+    const takeoffTime = new Date(flightData.takeoff);
+    const landingTime = new Date(flightData.landing);
+
+    let baseSalary = Math.max(flightHours * SALARY_CONFIG.baseRate,
+                             SALARY_CONFIG.minFlightTime * SALARY_CONFIG.baseRate);
+
+    const takeoffHour = takeoffTime.getHours();
+    const landingHour = landingTime.getHours();
+    const isNightFlight = takeoffHour >= SALARY_CONFIG.nightHours[0] ||
+                         takeoffHour < SALARY_CONFIG.nightHours[1] ||
+                         landingHour >= SALARY_CONFIG.nightHours[0] ||
+                         landingHour < SALARY_CONFIG.nightHours[1];
+
+    if (isNightFlight) {
+      baseSalary *= SALARY_CONFIG.nightBonus;
+    }
+
+    const isInternational = (departureAirportData && arrivalAirportData &&
+                           departureAirportData.country !== arrivalAirportData.country);
+
+    if (isInternational) {
+      baseSalary *= SALARY_CONFIG.internationalBonus;
+    }
+
+    let landingBonus = 0;
+    switch(landingQuality) {
+      case "BUTTER":
+        landingBonus = SALARY_CONFIG.butterBonus;
+        break;
+      case "HARD":
+        landingBonus = SALARY_CONFIG.hardPenalty;
+        break;
+      case "CRASH":
+        landingBonus = SALARY_CONFIG.crashPenalty;
+        break;
+    }
+
+    const totalSalary = Math.max(0, baseSalary + landingBonus);
+
+    return {
+      base: Math.round(baseSalary),
+      bonus: landingBonus,
+      total: Math.round(totalSalary),
+      isNight: isNightFlight,
+      isInternational: isInternational,
+      currency: "CNY"
+    };
+  }
+
+  function sendLogToDiscord(data, salaryData) {
     const takeoffTime = formatTimeWithTimezone(data.takeoff, departureAirportData);
     const landingTime = formatTimeWithTimezone(data.landing, arrivalAirportData);
 
@@ -139,7 +201,7 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
 
     const message = {
       embeds: [{
-        title: "🛫 Flight Report - Travel Airways",
+        title: "🛫 Flight Report - GeoFS",
         color: embedColor,
         fields: [
           {
@@ -168,6 +230,11 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
             inline: true
           },
           {
+            name: "💰 Salary",
+            value: `**Total**: ${salaryData.total} CNY`,
+            inline: true
+          },
+          {
             name: "🕓 Times",
             value: `**Takeoff**: ${takeoffTime}\n**Landing**: ${landingTime}`,
             inline: false
@@ -175,7 +242,7 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
         ],
         timestamp: new Date().toISOString(),
         footer: {
-          text: "Travel Airways Flight Logger"
+          text: "GeoFS Flight Logger"
         }
       }]
     };
@@ -205,21 +272,41 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
       boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
       opacity: '0',
       transform: 'translateX(100%)',
-      transition: 'all 0.3s ease-in-out'
+      transition: 'all 0.3s ease-in-out',
+      textAlign: 'center'
     });
+
     switch(type) {
-      case 'crash': toast.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)'; break;
-      case 'success': toast.style.background = 'linear-gradient(135deg, #00ff44, #00cc00)'; break;
-      case 'warning': toast.style.background = 'linear-gradient(135deg, #ffaa00, #ff8800)'; break;
-      default: toast.style.background = 'linear-gradient(135deg, #0099ff, #0066cc)';
+      case 'crash':
+        toast.style.background = 'linear-gradient(135deg, #ff4444, #cc0000)';
+        break;
+      case 'success':
+        toast.style.background = 'linear-gradient(135deg, #00C851, #007E33)';
+        break;
+      case 'warning':
+        toast.style.background = 'linear-gradient(135deg, #ffbb33, #FF8800)';
+        break;
+      case 'salary':
+        toast.style.background = 'linear-gradient(135deg, #33b5e5, #0099CC)';
+        break;
+      default:
+        toast.style.background = 'linear-gradient(135deg, #2E86C1, #1B4F72)';
     }
+
     toast.innerHTML = message;
     document.body.appendChild(toast);
-    setTimeout(() => { toast.style.opacity = '1'; toast.style.transform = 'translateX(0)'; }, 10);
+
+    setTimeout(() => {
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(0)';
+    }, 10);
+
     setTimeout(() => {
       toast.style.opacity = '0';
       toast.style.transform = 'translateX(100%)';
-      setTimeout(() => { if (document.body.contains(toast)) document.body.removeChild(toast); }, 300);
+      setTimeout(() => {
+        if (document.body.contains(toast)) document.body.removeChild(toast);
+      }, 300);
     }, duration);
   }
 
@@ -246,11 +333,10 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
       }
       saveSession();
       console.log(`🛫 Departure detected at ${departureICAO}`);
+      showToast("🛫 起飞检测成功<br>开始记录飞行数据", 'success');
       if (panelUI) {
-        if (window.instruments && window.instruments.visible) {
-          panelUI.style.opacity = "0";
-          setTimeout(() => panelUI.style.display = "none", 500);
-        }
+        panelUI.style.opacity = "0";
+        setTimeout(() => panelUI.style.display = "none", 500);
       }
     }
 
@@ -258,9 +344,9 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
     if (flightStarted && !firstGroundContact && onGround) {
       if (elapsed < 1) return;
       const vs = values.verticalSpeed;
-      
+
       if (vs <= -800) {
-        showToast("💥 CRASH DETECTED<br>Logging crash report...", 'crash', 4000);
+        showToast("💥 坠机检测<br>记录事故报告...", 'crash', 4000);
         const nearestAirport = getNearestAirport(lat, lon);
         if (nearestAirport) {
           arrivalICAO = "Crash";
@@ -293,10 +379,20 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
         baseCallsign : `TRA${baseCallsign}`;
       const aircraft = getAircraftName();
       const durationMin = Math.round((firstGroundTime - flightStartTime) / 60000);
+      const durationHours = durationMin / 60;
 
       const hours = Math.floor(durationMin / 60);
       const minutes = durationMin % 60;
       const formattedDuration = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+
+      const flightDataForSalary = {
+        durationHours: durationHours,
+        landingQuality: quality,
+        takeoff: flightStartTime,
+        landing: firstGroundTime
+      };
+
+      const salaryData = calculateSalary(flightDataForSalary);
 
       sendLogToDiscord({
         pilot, aircraft,
@@ -305,12 +401,25 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
         dep: departureICAO,
         arr: arrivalICAO,
         duration: formattedDuration,
+        durationHours: durationHours,
         vs: vs.toFixed(1),
         gforce: g,
         gs: gs,
         ktrue: tas,
         landingQuality: quality
-      });
+      }, salaryData);
+
+      let salaryMessage = `💰 工资结算: ${salaryData.total} CNY`;
+      if (salaryData.bonus > 0) {
+        salaryMessage += `<br>🎉 奖金: +${salaryData.bonus} CNY`;
+      } else if (salaryData.bonus < 0) {
+        salaryMessage += `<br>⚠️ 罚款: ${salaryData.bonus} CNY`;
+      }
+
+      if (salaryData.isNight) salaryMessage += "<br>🌙 包含夜间飞行加成";
+      if (salaryData.isInternational) salaryMessage += "<br>🌍 包含国际航班加成";
+
+      showToast(salaryMessage, 'salary', 5000);
 
       saveSession();
       clearSession();
@@ -334,12 +443,10 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
     arrivalAirportData = null;
     callsignInput.value = "";
     startButton.disabled = true;
-    startButton.innerText = "📋 Start Flight Logger";
+    startButton.innerText = "📋 开始飞行记录";
     if (panelUI) {
-      if (window.instruments && window.instruments.visible) {
-        panelUI.style.display = "block";
-        panelUI.style.opacity = "0.5";
-      }
+      panelUI.style.display = "block";
+      panelUI.style.opacity = "0.8";
     }
   }
 
@@ -349,112 +456,206 @@ fetch("https://raw.githubusercontent.com/mwgg/Airports/master/airports.json")
     );
   }
 
+  function togglePanelVisibility() {
+    isPanelVisible = !isPanelVisible;
+    if (panelUI) {
+      if (isPanelVisible) {
+        panelUI.style.display = "block";
+        setTimeout(() => {
+          panelUI.style.opacity = "0.8";
+        }, 10);
+      } else {
+        panelUI.style.opacity = "0";
+        setTimeout(() => {
+          panelUI.style.display = "none";
+        }, 500);
+      }
+    }
+  }
+
   function createSidePanel() {
     panelUI = document.createElement("div");
     Object.assign(panelUI.style, {
-      position: "absolute",
-      bottom: "50px",
-      left: "10px",
-      background: "#111",
+      position: "fixed",
+      top: "80px",
+      left: "20px",
+      background: "linear-gradient(135deg, #1a1a1a, #2d2d2d)",
       color: "white",
-      padding: "10px",
-      border: "2px solid white",
-      zIndex: "21",
-      width: "220px",
+      padding: "15px",
+      border: "2px solid #00C8FF",
+      zIndex: "10000",
+      width: "280px",
       fontSize: "14px",
-      fontFamily: "sans-serif",
-      transition: "opacity 0.5s ease",
+      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      transition: "all 0.3s ease",
       display: "block",
-      opacity: "0.5"
+      opacity: "0.8",
+      cursor: "move",
+      borderRadius: "12px",
+      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
+      backdropFilter: "blur(10px)"
     });
 
+    const titleBar = document.createElement("div");
+    titleBar.innerHTML = `
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+          <span style="font-size: 18px; font-weight: bold; color: #00C8FF;">✈️ Travel Airways</span>
+        </div>
+        <div style="font-size: 12px; color: #888;">按 W 显示/隐藏</div>
+      </div>
+    `;
+    titleBar.style.padding = "10px 15px";
+    titleBar.style.margin = "-15px -15px 15px -15px";
+    titleBar.style.background = "linear-gradient(135deg, #2d2d2d, #1a1a1a)";
+    titleBar.style.cursor = "move";
+    titleBar.style.borderRadius = "10px 10px 0 0";
+    titleBar.style.userSelect = "none";
+    titleBar.style.borderBottom = "2px solid #00C8FF";
+    panelUI.appendChild(titleBar);
+
     const airlineLabel = document.createElement("div");
-    airlineLabel.textContent = "Airline: Travel Airways (TRA)";
-    airlineLabel.style.marginBottom = "10px";
+    airlineLabel.textContent = "航空公司: Travel Airways (TRA)";
+    airlineLabel.style.marginBottom = "15px";
     airlineLabel.style.fontSize = "12px";
     airlineLabel.style.color = "#00C8FF";
+    airlineLabel.style.textAlign = "center";
+    airlineLabel.style.padding = "8px";
+    airlineLabel.style.background = "rgba(0, 200, 255, 0.1)";
+    airlineLabel.style.borderRadius = "6px";
+    airlineLabel.style.border = "1px solid rgba(0, 200, 255, 0.3)";
     panelUI.appendChild(airlineLabel);
 
+    const inputContainer = document.createElement("div");
+    inputContainer.style.marginBottom = "15px";
+
+    const inputLabel = document.createElement("div");
+    inputLabel.textContent = "航班号 (数字部分):";
+    inputLabel.style.marginBottom = "5px";
+    inputLabel.style.color = "#00C8FF";
+    inputLabel.style.fontSize = "12px";
+    inputContainer.appendChild(inputLabel);
+
     callsignInput = document.createElement("input");
-    callsignInput.placeholder = "Flight Number (e.g., 123)";
+    callsignInput.placeholder = "例如: 123 → TRA123";
     callsignInput.style.width = "100%";
-    callsignInput.style.marginBottom = "6px";
+    callsignInput.style.padding = "10px";
+    callsignInput.style.border = "1px solid #444";
+    callsignInput.style.borderRadius = "6px";
+    callsignInput.style.background = "rgba(255, 255, 255, 0.1)";
+    callsignInput.style.color = "white";
+    callsignInput.style.outline = "none";
+    callsignInput.style.transition = "all 0.3s ease";
+    callsignInput.addEventListener("focus", () => {
+      callsignInput.style.borderColor = "#00C8FF";
+      callsignInput.style.background = "rgba(255, 255, 255, 0.15)";
+    });
+    callsignInput.addEventListener("blur", () => {
+      callsignInput.style.borderColor = "#444";
+      callsignInput.style.background = "rgba(255, 255, 255, 0.1)";
+    });
     disableKeyPropagation(callsignInput);
     callsignInput.onkeyup = () => {
       startButton.disabled = callsignInput.value.trim() === "";
+      startButton.style.background = callsignInput.value.trim() === ""
+        ? "linear-gradient(135deg, #666, #555)"
+        : "linear-gradient(135deg, #00C851, #007E33)";
     };
+    inputContainer.appendChild(callsignInput);
+    panelUI.appendChild(inputContainer);
+
     startButton = document.createElement("button");
-    startButton.innerText = "📋 Start Flight Logger";
+    startButton.innerText = "📋 开始飞行记录";
     startButton.disabled = true;
     Object.assign(startButton.style, {
       width: "100%",
-      padding: "6px",
-      background: "#333",
+      padding: "12px",
+      background: "linear-gradient(135deg, #666, #555)",
       color: "white",
-      border: "1px solid white",
-      cursor: "pointer"
+      border: "none",
+      cursor: "pointer",
+      borderRadius: "6px",
+      fontSize: "14px",
+      fontWeight: "bold",
+      transition: "all 0.3s ease",
+      marginBottom: "10px"
+    });
+
+    startButton.addEventListener("mouseover", function() {
+      if (!this.disabled) {
+        this.style.transform = "translateY(-2px)";
+        this.style.boxShadow = "0 4px 12px rgba(0, 200, 133, 0.3)";
+      }
+    });
+
+    startButton.addEventListener("mouseout", function() {
+      this.style.transform = "translateY(0)";
+      this.style.boxShadow = "none";
     });
 
     startButton.onclick = () => {
-      alert("Flight Logger activated! Start your flight when ready.");
+      showToast("✅ 飞行记录已启动<br>准备起飞...", 'success');
       monitorInterval = setInterval(monitorFlight, 1000);
-      startButton.innerText = "✅ Logger Running...";
+      startButton.innerText = "🟢 记录中...";
       startButton.disabled = true;
+      startButton.style.background = "linear-gradient(135deg, #007E33, #005a25)";
     };
 
-    panelUI.appendChild(callsignInput);
     panelUI.appendChild(startButton);
 
-    const resumeSession = loadSession();
-    const resumeBtn = document.createElement("button");
-    resumeBtn.innerText = "⏪ Resume Last Flight";
-    Object.assign(resumeBtn.style, {
-      width: "100%",
-      marginTop: "6px",
-      padding: "6px",
-      background: "#222",
-      color: "white",
-      border: "1px solid white",
-      cursor: "pointer"
+    const salaryInfo = document.createElement("div");
+    salaryInfo.innerHTML = `
+      <div style="background: rgba(0, 200, 255, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(0, 200, 255, 0.2);">
+        <div style="color: #00C8FF; font-size: 12px; margin-bottom: 5px;">💰 工资标准:</div>
+        <div style="font-size: 11px; color: #aaa; line-height: 1.4;">
+          • 基础: ${SALARY_CONFIG.baseRate} CNY/小时<br>
+          • 夜间: ×${SALARY_CONFIG.nightBonus}<br>
+          • 国际: ×${SALARY_CONFIG.internationalBonus}<br>
+          • 完美着陆: +${SALARY_CONFIG.butterBonus} CNY
+        </div>
+      </div>
+    `;
+    panelUI.appendChild(salaryInfo);
+
+    document.body.appendChild(panelUI);
+
+    titleBar.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      dragOffsetX = e.clientX - panelUI.getBoundingClientRect().left;
+      dragOffsetY = e.clientY - panelUI.getBoundingClientRect().top;
+      panelUI.style.cursor = "grabbing";
+      panelUI.style.boxShadow = "0 12px 40px rgba(0, 0, 0, 0.4)";
     });
 
-    resumeBtn.onclick = () => {
-      if (resumeSession) {
-        flightStarted = true;
-        flightStartTime = resumeSession.flightStartTime;
-        departureICAO = resumeSession.departureICAO;
-        departureAirportData = resumeSession.departureAirportData;
-        firstGroundContact = resumeSession.firstGroundContact || false;
-        callsignInput.value = resumeSession.callsign || "";
-        monitorInterval = setInterval(monitorFlight, 1000);
-        resumeBtn.innerText = "✅ Resumed!";
-        resumeBtn.disabled = true;
-        startButton.innerText = "✅ Logger Running...";
-        startButton.disabled = true;
-        console.log("🔁 Resumed flight session.");
-        if (panelUI && window.instruments && window.instruments.visible) {
-          panelUI.style.opacity = "0";
-          setTimeout(() => panelUI.style.display = "none", 500);
-        }
-      } else {
-        alert("❌ No previous session found.");
+    document.addEventListener('mousemove', function(e) {
+      if (isDragging) {
+        const x = e.clientX - dragOffsetX;
+        const y = e.clientY - dragOffsetY;
+
+        const maxX = window.innerWidth - panelUI.offsetWidth;
+        const maxY = window.innerHeight - panelUI.offsetHeight;
+
+        panelUI.style.left = Math.max(0, Math.min(x, maxX)) + 'px';
+        panelUI.style.top = Math.max(0, Math.min(y, maxY)) + 'px';
       }
-    };
+    });
 
-    panelUI.appendChild(resumeBtn);
-    document.body.appendChild(panelUI);
-  }
-
-  function updatePanelVisibility() {
-    if (panelUI) {
-      panelUI.style.display = (window.instruments && window.instruments.visible) ? "block" : "none";
-    }
-    setTimeout(updatePanelVisibility, 100);
+    document.addEventListener('mouseup', function() {
+      isDragging = false;
+      panelUI.style.cursor = "move";
+      panelUI.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.3)";
+    });
   }
 
   window.addEventListener("load", () => {
     console.log("✅ Travel Airways Flight Logger Loaded");
     createSidePanel();
-    setTimeout(updatePanelVisibility, 1000);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key.toLowerCase() === 'w' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+        e.preventDefault();
+        togglePanelVisibility();
+      }
+    });
   });
 })();
