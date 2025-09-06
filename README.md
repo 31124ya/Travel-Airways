@@ -19,7 +19,13 @@ My goal was to put the liveries into one easy to use interface where you can sel
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=GeoFS-hub/Travel-Airways&type=Date)](https://www.star-history.com/#GeoFS-hub/Travel-Airways&Date)
+<a href="https://www.star-history.com/#GeoFS-hub/Travel-Airways&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=GeoFS-hub/Travel-Airways&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=GeoFS-hub/Travel-Airways&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=GeoFS-hub/Travel-Airways&type=Date" />
+ </picture>
+</a>
 
 
 ## Offical Website
