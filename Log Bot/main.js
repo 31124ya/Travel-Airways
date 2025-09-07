@@ -21,7 +21,7 @@
     internationalBonus: 1.5, // 国际航班加成
     butterBonus: 200, // 完美着陆奖金
     hardPenalty: -100, // 硬着陆罚款
-    crashPenalty: -50000, // 坠机罚款
+    crashPenalty: -500000, // 坠机罚款
     minFlightTime: 0, // 最小计费时间（小时）
     nightHours: [22, 6] // 夜间时间段 [开始小时, 结束小时]
   };
