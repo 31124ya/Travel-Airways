@@ -2,7 +2,6 @@
     "name": "Travel Airways",
     "color": "#10a4a5",
     "bgcolor": "#ffffff",
-    "version": "1.0.0"
     "aircrafts": {
         "1": {
             "name": "Piper J3 Cub",
