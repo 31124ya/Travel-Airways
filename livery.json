@@ -5,16 +5,14 @@
     "aircrafts": {
         "1": {
             "name": "Piper J3 Cub",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "2": {
             "name": "Cessna 172 Skyhawk",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
