@@ -19,8 +19,7 @@
         },
         "3": {
             "name": "Alphajet PAF",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Fuselage texture",
                 "Wing texture"
@@ -47,8 +46,7 @@
         },
         "6": {
             "name": "de Havilland Canada DHC6 Twin Otter",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture",
                 "Texture Left",
@@ -58,8 +56,7 @@
         },
         "8": {
             "name": "Pitts Special S1",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Fuselage texture",
                 "Wing texture",
@@ -68,8 +65,7 @@
         },
         "9": {
             "name": "Eurocopter EC135",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -115,8 +111,7 @@
         },
         "11": {
             "name": "Alisport Silent 2 Electro",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -125,8 +120,7 @@
         },
         "12": {
             "name": "Pilatus PC-7 Mk-I",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -136,16 +130,14 @@
         },
         "13":{
             "name": "de Havilland Canada DHC2 Beaver",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "14": {
             "name": "Colomban MC-15 Cri-cri",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture",
                 "Texture Interior"
@@ -153,8 +145,7 @@
         },
         "15": {
             "name": "Lokheed P38 Lightning",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Specular shader",
                 "Texture"
@@ -162,48 +153,42 @@
         },
         "18": {
             "name": "Sukhoi Su-35 Flanker",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "20": {
             "name": "Aerospatiale France - British Aircraft Corporation Concorde",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "21": {
             "name": "Zlin Z-50",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "22": {
             "name": "Cessna 152",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "26": {
             "name": "Antonov An-140",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "31": {
             "name": "Potez 25",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -213,40 +198,35 @@
         },
         "40": {
             "name": "Evektor Sportstar",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "50": {
             "name": "Paraglider",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "51": {
             "name": "Major Tom (hot air balloon)",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "53": {
             "name": "Goat Airchair",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "102": {
             "name": "Citroen 2CV",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -255,8 +235,7 @@
         },
         "237": {
             "name": "Boeing b767-300ER",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
