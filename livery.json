@@ -842,21 +842,33 @@
         "5193": {
             "name": "Boeing b747-8I",
             "liveries": [
-                 {
+                {
                     "name": "Travel Airways CARGO",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/Boeing%20747-8F/Travel%20Airways%20B747-8F.png",
                         "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b747-8i/wing/original.png"
                     ]
                     "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
+                }
             ],
             "labels": [
-                "Texture",
-                "Wing texture"
+                "Texture"
             ]
-            
         },
+        "1018": {
+            "name": "Embraer ERJ 190",
+            "liveries": [],
+            "labels": [
+                "Texture"
+            ]
+        },
+        "1005": {
+            "name": "Boeing b777-200",
+            "liveries": [],
+            "labels": [
+                "Metallic Roughness shader",
+                "Texture"
+            ]
         "2857": {
             "name": "Lokheed Martin F22 Raptor",
             "liveries": [],
