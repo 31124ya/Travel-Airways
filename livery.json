@@ -451,16 +451,14 @@
         },
         "3292": {
             "name": "Boeing p8I Neptune",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "3307": {
             "name": "Bombardier CRJ700",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Fuselage texture",
                 "Wing texture",
@@ -512,8 +510,7 @@
         },
         "4140": {
             "name": "Boeing b737-200",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -527,24 +524,21 @@
         },
         "4398": {
             "name": "Britten-Norman BN2 Islander",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "2892": {
             "name": "SAAB 340",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "16": {
             "name": "Douglas DC-3",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -553,16 +547,14 @@
         },
         "2706": {
             "name": "Bombardier CRJ200",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "3341": {
             "name": "Embraer ERJ 170",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Fuselage texture",
                 "Wing texture",
@@ -648,24 +640,21 @@
         },
         "7": {
             "name": "General Dynamics F16 Fighting Falcon",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "4745": {
             "name": "Boeing b757-300WL",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "4743": {
             "name": "Boeing b757-300",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -713,16 +702,14 @@
         },
         "4596": {
             "name": "Vans RV6",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "23": {
             "name": "Piper PA-28 161 Warrior II",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -731,8 +718,7 @@
         },
         "3289": {
             "name": "Dornier do228-200",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -746,8 +732,7 @@
         },
         "5061": {
             "name": "Sonex-B kit",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
@@ -757,16 +742,14 @@
         },
         "5073": {
             "name": "Bombardier Learjet45",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5": {
             "name": "Embraer Phenom100",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Normal map",
                 "Specular shader",
