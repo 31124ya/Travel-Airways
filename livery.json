@@ -357,20 +357,11 @@
         },
         "2973": {
             "name": "Airbus a350-1000",
-            "liveries": [
-                {
-                    "name": "暂无涂装",
-                    "texture": [
-                        "NO"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                }
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
-        },
-        "3575": {
+        },"3575": {
             "name": "Boeing b787-9",
             "liveries": [
                 {
@@ -416,8 +407,7 @@
         },
         "2899": {
             "name": "Airbus a220-300",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -439,15 +429,7 @@
         },
         "2769": {
             "name": "Boeing b737-MAX 8",
-            "liveries": [
-                {
-                    "name": "No liveries Yet",
-                    "texture": [
-                        "No liveries Yet"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -523,15 +505,7 @@
         },
         "4017": {
             "name": "Embraer ERJ 145LR",
-            "liveries": [
-                {
-                    "name": "No liveries Yet",
-                    "texture": [
-                        "No liveries Yet"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                }
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -546,17 +520,7 @@
         },
         "247": {
             "name": "Bombardier Dash8-q400",
-            "liveries": [
-                {
-                    "name": "No liveries Yet",
-                    "texture": [
-                        "No liveries Yet",
-                        "No liveries Yet",
-                        "No liveries Yet",
-                        "No liveries Yet"
-                    ]
-                },
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -775,15 +739,7 @@
         },
         "4764": {
             "name": "Boeing b767-400ER",
-            "liveries": [
-                {
-                    "name": "No liveries Yet",
-                    "texture": [
-                        "No liveries Yet"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                }
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -834,15 +790,7 @@
         },
         "2951": {
             "name": "Airbus a340-300",
-            "liveries": [
-                {
-                    "name": "No liveries Yet",
-                    "texture": [
-                        "No liveries Yet"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -863,14 +811,7 @@
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/Airbus%20A330-200/Travel%20Airways%20A330-200%20Stellar%20Sky%20Alliance%20Livery.png"
                     ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
-                {
-                    "name": "No CARGO liveries Yet",
-                    "texture": [
-                        "No liveries Yet"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
+                }
             ],
             "labels": [
                 "Texture"
@@ -878,24 +819,21 @@
         },
         "27": {
             "name": "McDonell Douglas - Boeing F/A-18F Super Hornet",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5156": {
             "name": "Airbus a318-112",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "2864": {
             "name": "Leonardo - AugustaWestland AW609",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -903,8 +841,7 @@
         },
         "2852": {
             "name": "Cameron R-650 Rozière Balloon",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
@@ -912,8 +849,7 @@
         },
         "5038": {
             "name": "Lokheed L1011-1 TriStar",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture",
                 "Metallic Roughness shader",
@@ -940,8 +876,7 @@
         },
         "2857": {
             "name": "Lokheed Martin F22 Raptor",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture",
                 "Metallic Roughness shader"
@@ -949,48 +884,42 @@
         },
         "3211": {
             "name": "UTVA 75",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "2808": {
             "name": "Supermarine Spitfire Mk XIV",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5203": {
             "name": "Boeing b737-600",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5229": {
             "name": "Lokheed Martin F35B Lightning II",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "3591": {
             "name": "McDonnell Douglas F-15C Eagle",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "28": {
             "name": "Beechcraft B55 Baron",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Main",
                 "Tail"
@@ -998,8 +927,7 @@
         },
         "2788": {
             "name": "Antonov An-225 Mriya",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Fuselage texture",
                 "Engine texture"
@@ -1007,8 +935,7 @@
         },
         "29": {
             "name": "Dassault Rafale",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels":[
                 "Normal map",
                 "Main texture",
@@ -1018,8 +945,7 @@
         },
         "2953": {
             "name": "NASA Space Shuttle",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels":[
                 "Main texture",
                 "EFT",
@@ -1028,8 +954,7 @@
         },
         "1014": {
             "name": "Ilyushin IL-76TD",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Fuselage texture",
                 "Wing texture"
@@ -1058,111 +983,6 @@
             "labels": [
                 "Texture"
             ]
-        },
-        "1005": {
-            "index": [
-                1,
-                0
-            ],
-            "parts": [
-                0,
-                0
-            ],
-            "mp": "disabled",
-            "liveries": [
-                {
-                    "name": "Travel Airways",
-                    "texture": [
-                        "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b777-200/shaders/original.png",
-                        "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/26a02890a17ac9ec491472214b27d71ebea30d5a/liveries/Boeing%20777-200ER/Travel%20Airways%20B777-200ER.png"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                }
-            ],
-            "labels": [
-                "Metallic Roughness shader",
-                "Texture"
-            ],
-            "name": "Boeing b777-200"
-        },
-        "1004": {
-            "index": [
-                1,
-                0
-            ],
-            "parts": [
-                0,
-                0
-            ],
-            "mp": "disabled",
-            "liveries": [
-                {
-                    "name": "Travel Airways",
-                    "texture": [
-                        "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b777-200lr/shaders/original.png",
-                        "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/26a02890a17ac9ec491472214b27d71ebea30d5a/liveries/Boeing%20777-200LR/Travel%20Airways%20B777-200LR.png"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                }
-            ],
-            "labels": [
-                "Metallic Roughness shader",
-                "Texture"
-            ],
-            "name": "Boeing b777-200LR"
-        },
-        "4402": {
-            "index": [
-                1,
-                0
-            ],
-            "parts": [
-                0,
-                0
-            ],
-            "mp": "disabled",
-            "liveries": [
-                {
-                    "name": "Travel Airways",
-                    "texture": [
-                        "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b777-200f/shaders/original.png",
-                        "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/26a02890a17ac9ec491472214b27d71ebea30d5a/liveries/Boeing%20777-200F/Travel%20Airways%20B777-200F.png"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                }
-                ],
-            "labels": [
-                "Metallic Roughness shader",
-                "Texture"
-            ],
-            "name": "Boeing b777-200F" 
-        },
-        "1001": {
-            "index": [
-                0
-            ],
-            "parts": [
-                0
-            ],
-            "mp": [
-                {
-                    "modelIndex": 0,
-                    "textureIndex": 0
-                }
-            ],
-            "liveries": [
-                {
-                    "name": "No liveries Yet",
-                    "texture": [
-                        "No liveries Yet"
-                    ],
-                    "credits": "31124呀, KN5290, GeoFS Explorer"
-                }
-            ],
-            "labels": [
-                "Texture"
-            ],
-            "name": "Boeing b737-900" 
-        },
+        }
     }
 }
