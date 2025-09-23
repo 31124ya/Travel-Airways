@@ -981,40 +981,35 @@
         },
         "3617": {
             "name": "Dessault Mirage 2000-5",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5347": {
             "name": "Dessault Mirage F1",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "3011": {
             "name": "Airbus a320-232",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5314": {
             "name": "Boeing b747-100 SCA",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "3460": {
             "name": "Grumman E-2 Hawkeye",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Dome texture",
                 "Fuselage texture",
@@ -1024,32 +1019,28 @@
         },
         "3436": {
             "name": "Dornier do228-100 Coast Guard",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5405": {
             "name": "Chengdu J-20",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5431": {
             "name": "Northrop YF-23",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "1005": {
             "name": "Boeing b777-200",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Metallic Roughness shader",
                 "Texture"
@@ -1057,8 +1048,7 @@
         },
         "1004": {
             "name": "Boeing b777-200LR",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Metallic Roughness shader",
                 "Texture"
@@ -1066,8 +1056,7 @@
         },
         "4402": {
             "name": "Boeing b777-200F",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Metallic Roughness shader",
                 "Texture"
@@ -1075,16 +1064,14 @@
         },
         "1001": {
             "name": "Boeing b737-900",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5409": {
             "name": "Boeing b747-400D",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture",
                 "Wing texture"
@@ -1093,40 +1080,35 @@
         },
         "1018": {
             "name": "Embraer ERJ 190",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "252": {
             "name": "Boeing b747-8F",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "2806": {
             "name": "Sikorsky UH-60 Black Hawk",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "5499": {
             "name": "CubCrafters CC19 XCub",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
         },
         "2786": {
             "name": "Grumman J2F-5 Duck",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Main texture",
                 "Rudder texture",
@@ -1135,8 +1117,7 @@
         },
         "5551": {
             "name": "Comac C919",
-            "liveries": [
-            ],
+            "liveries": [],
             "labels": [
                 "Texture"
             ]
