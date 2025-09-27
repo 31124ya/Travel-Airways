@@ -1117,7 +1117,17 @@
         },
         "5551": {
             "name": "Comac C919",
-            "liveries": [],
+            "liveries": [
+                [
+                {
+                    "name": "Travel Airways",
+                    "texture": [
+                        "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/9a48963ec3de567388735590a9b2b51b95ab80be/liveries/COMAC%20C919/Travel%20Airways%20C919.png",
+                        "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/9a48963ec3de567388735590a9b2b51b95ab80be/liveries/COMAC%20C919/Travel%20Airways%20C919.png"
+                    ]
+                    "credits": "31124呀, KN5290, GeoFS Explorer"
+                }
+            ],
             "labels": [
                 "Texture"
             ]
