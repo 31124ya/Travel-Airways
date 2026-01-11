@@ -39,10 +39,8 @@ My goal was to put the liveries into one easy to use interface where you can sel
 ###### Credit to AverageCreator and SeaBus of their add-on [SAW Flight Logger](https://github.com/AverageCreator/SAW-Flight-Logger)
 
 
-## How to use
-
+[!NOTE]## How to use
 > Tutorial video by 31124呀
-> - [On YouTube](URL)
 > - [On Bilibili](URL)
 
 
