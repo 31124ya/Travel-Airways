@@ -327,7 +327,7 @@
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/57cda2c691c8c4673a73db668ab37aa8ff685188/liveries/Airbus%20A319-100/Travel%20Airways%20A319.png"
                     ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
+                }
             ],
             "labels": [
                 "Texture"
@@ -421,7 +421,7 @@
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/f30d60c5dbcaacc33694d46c61e2c75437da2660/liveries/Airbus%20A320neo/Travel%20Airways%20A320neo.png"
                     ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
+                }
             ],
             "labels": [
                 "Texture"
@@ -632,7 +632,7 @@
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/Airbus%20A321neo/Travel%20Airways%20A321neo.png"
                     ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
+                }
             ],
             "labels": [
                 "Texture"
@@ -693,7 +693,7 @@
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/Boeing%20777-300ER/Travel%20Airways%20B777-300ER%20Loves%20China%20Livery.png"
                     ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
-                },
+                }
             ],
             "labels": [
                 "Specular shader",
@@ -847,7 +847,7 @@
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/Boeing%20747-8F/Travel%20Airways%20B747-8F.png",
                         "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b747-8i/wing/original.png"
-                    ]
+                    ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
                 }
             ],
@@ -869,6 +869,7 @@
                 "Metallic Roughness shader",
                 "Texture"
             ]
+        },
         "2857": {
             "name": "Lokheed Martin F22 Raptor",
             "liveries": [],
@@ -1118,13 +1119,12 @@
         "5551": {
             "name": "Comac C919",
             "liveries": [
-                [
                 {
                     "name": "Travel Airways",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/9a48963ec3de567388735590a9b2b51b95ab80be/liveries/COMAC%20C919/Travel%20Airways%20C919.png",
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/9a48963ec3de567388735590a9b2b51b95ab80be/liveries/COMAC%20C919/Travel%20Airways%20C919.png"
-                    ]
+                    ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
                 }
             ],
