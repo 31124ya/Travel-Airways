@@ -381,7 +381,7 @@
                 {
                     "name": "Travel Airways Tsinghua University",
                     "texture": [
-                        "https://raw.githubusercontent.comGeoFS-hub/Travel-Airways/f30d60c5dbcaacc33694d46c61e2c75437da2660/liveries/Boeing%20787-9/Travel%20Airways%20B787-9%20Tsinghua%20University%20Livery.png"
+                        "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/f30d60c5dbcaacc33694d46c61e2c75437da2660/liveries/Boeing%20787-9/Travel%20Airways%20B787-9%20Tsinghua%20University%20Livery.png"
                     ],
                     "credits": "31124呀, KN5290, GeoFS Explorer"
                 }
@@ -1039,14 +1039,6 @@
                 "Texture"
             ]
         },
-        "1005": {
-            "name": "Boeing b777-200",
-            "liveries": [],
-            "labels": [
-                "Metallic Roughness shader",
-                "Texture"
-            ]
-        },
         "1004": {
             "name": "Boeing b777-200LR",
             "liveries": [],
@@ -1078,13 +1070,6 @@
                 "Wing texture"
             ]
             
-        },
-        "1018": {
-            "name": "Embraer ERJ 190",
-            "liveries": [],
-            "labels": [
-                "Texture"
-            ]
         },
         "252": {
             "name": "Boeing b747-8F",
@@ -1134,3 +1119,7 @@
         }
     }
 }
+
+
+
+
