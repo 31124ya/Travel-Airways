@@ -1059,9 +1059,9 @@
             "name": "Boeing b737-900",
             "liveries": [
                 {
-                    "name": "Travel Airways (FC Football World Game Livery)",
+                    "name": "Travel Airways (FC Football World Game)",
                     "texture": [
-                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing 737-900/TAFC.jpg"
+                        "https://github.com/31124ya/Travel-Airways/blob/main/liveries/Boeing%20737-900/Travel%20Airways%20Boeing%20737-900ER%20FC%20Football%20World%20Game.jpg"
                     ],
                     "credits": "KN5290"
                 }
@@ -1121,6 +1121,31 @@
                     "credits": "31124呀＆KN5290"
                 }
             ],
+            "labels": [
+                "Texture"
+            ]
+        },
+        "1005": {
+            "name": "Boeing b777-9X",
+            "liveries": [
+                {
+                    "name": "Travel Airways",
+                    "texture": [
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20777-9x/Travel%20Airways%20B777-9x.jpg",
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20777-9x/Travel%20Airways%20B777-9x.jpg",
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20777-9x/Travel%20Airways%20B777-9x.jpg"
+                    ],
+                    "credits": "KN5290"
+                },
+                {
+                    "name": "Travel Airways (Yi Ming Fresh Milk Bar)",
+                    "texture": [
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20777-9x/Travel%20Airways%20B777-9x%20Yi%20Ming%20Fresh%20Milk%20Bar.jpg",
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20777-9x/Travel%20Airways%20B777-9x%20Yi%20Ming%20Fresh%20Milk%20Bar.jpg",
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20777-9x/Travel%20Airways%20B777-9x%20Yi%20Ming%20Fresh%20Milk%20Bar.jpg"
+                    ],
+                    "credits": "KN5290"
+                }
             "labels": [
                 "Texture"
             ]
