@@ -244,7 +244,7 @@
             "name": "Boeing b757-200",
             "liveries": [
                 {
-                    "name": "Travel Airways CARGO",
+                    "name": "Travel Airways Cargo",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/57cda2c691c8c4673a73db668ab37aa8ff685188/liveries/Boeing%20757-200F/Travel%20Airways%20B757-200F.png",
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/57cda2c691c8c4673a73db668ab37aa8ff685188/liveries/Boeing%20757-200F/Travel%20Airways%20B757-200F.png",
@@ -344,7 +344,7 @@
                     "credits": "KN5290"
                 },
                 {
-                    "name": "Travel Airways CARGO",
+                    "name": "Travel Airways Cargo",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/57cda2c691c8c4673a73db668ab37aa8ff685188/liveries/ATR%2072-600/Travel%20Airways%20ATR72F.png"
                     ],
@@ -469,7 +469,7 @@
             "name": "Boeing b737-800",
             "liveries": [
                 {
-                    "name": "Travel Airways New Livery",
+                    "name": "Travel Airways (New livery)",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/f30d60c5dbcaacc33694d46c61e2c75437da2660/liveries/Boeing%20737-800/Travel%20Airways%20B737-800%20New%20Livery.png"
                     ],
@@ -789,7 +789,7 @@
                     "credits": "31124呀＆KN5290"
                 },
                 {
-                    "name": "Travel Airways Stellar Sky Alliance.png",
+                    "name": "Travel Airways Stellar Sky Alliance",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/Airbus%20A330-200/Travel%20Airways%20A330-200%20Stellar%20Sky%20Alliance%20Livery.png"
                     ],
@@ -843,7 +843,7 @@
             "name": "Boeing b747-8I",
             "liveries": [
                 {
-                    "name": "Travel Airways CARGO",
+                    "name": "Travel Airways Cargo",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/Boeing%20747-8F/Travel%20Airways%20B747-8F.png",
                         "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b747-8i/wing/original.png"
@@ -968,7 +968,7 @@
                     "credits": "31124呀＆KN5290"
                 },
                 {
-                    "name": "Travel Airways CARGO",
+                    "name": "Travel Airways Cargo",
                     "texture": [
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/McDonnell%20Douglas%20MD11/Travel%20Airways%20CARGO%20MD11F.png",
                         "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/89f53661a4ad8af2ee2fc60ba59be789e59b2a4a/liveries/McDonnell%20Douglas%20MD11/Travel%20Airways%20CARGO%20MD11F.png"
