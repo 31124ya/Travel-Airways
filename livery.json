@@ -339,9 +339,9 @@
                 {
                     "name": "Travel Airways",
                     "texture": [
-                        "https://raw.githubusercontent.com/GeoFS-hub/Travel-Airways/880d74ecce6b8ea9ec16c9ceae421d5a13077559/liveries/ATR%2072-600/Travel%20Airways%20ATR72.png"
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/ATR%2072-600/Travel_Airways_ATR72.png"
                     ],
-                    "credits": "31124呀, KN5290＆CP8888"
+                    "credits": "KN5290"
                 },
                 {
                     "name": "Travel Airways CARGO",
@@ -1149,6 +1149,23 @@
             ],
             "labels": [
                 "Texture"
+            ]
+        },
+        "5527": {
+            "name": "Boeing B747-400",
+            "liveries": [
+                {
+                    "name": "Travel Airways",
+                    "texture": [
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing_B747-400/Travel_Airways_B747-400.png",
+                        "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b747-400/wing/original.png"
+                    ],
+                    "credits": "KN5290"
+                }
+            ],
+            "labels": [
+                "Fuselage texture",
+                "Wing texture"
             ]
         }
     }
