@@ -1157,8 +1157,8 @@
                 {
                     "name": "Travel Airways",
                     "texture": [
-                        "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b747-400/KLM_fuselage.png",
-                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20747-400/Travel%20Airways%20Boeing%20747-400.png"
+                        "https://raw.githubusercontent.com/31124ya/Travel-Airways/refs/heads/main/liveries/Boeing%20747-400/Travel%20Airways%20Boeing%20747-400.png",
+                        "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/refs/heads/main/liveries/boeing_b747-400/wing/original.png"
                     ],
                     "credits": "KN5290"
                 }
